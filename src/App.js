@@ -1,4 +1,5 @@
-import "./App.css";
+import { Routes } from 'react-router-dom';
+import styles from './App.module.css';
 import { Navigation } from "./Componenets/Navigation/Navigation";
 
 function App() {
@@ -7,7 +8,14 @@ function App() {
 
     return (
         <>
-            <Navigation />
+            <div className={styles['main_container']}>
+                <Navigation />   
+            </div>
+
+            <Routes>
+
+
+            </Routes>
         
         </>
     )
