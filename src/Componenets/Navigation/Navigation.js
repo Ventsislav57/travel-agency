@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
 import styles from './Navigation.module.css';
 
 
@@ -69,44 +71,79 @@ export const Navigation = () => {
                     {showNavigation &&
                         <div className={styles['navigation_and_social_icons']}>
 
+                            <motion.div 
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{ duration: 1 }}
+                                className={styles['hor_line']}
+                            ></motion.div>
+
                             <div className={styles['navigation_container']}>
                                 <ul className={styles['navigation_element']}>
-                                    <li>
+                                    <motion.li
+                                        initial={{ x: '600px'}}
+                                        animate={{ x: '0px' }}
+                                        transition={{ duration: 0.5 }}
+                                    >
                                         <Link to='/' >
                                             Home
                                         </Link>
-                                    </li>
+                                    </motion.li>
 
-                                    <li>
+                                    <motion.li
+                                        initial={{ x: '-600px' }}
+                                        animate={{ x: '0' }}
+                                        transition={{ duration: 0.5, delay: 0.1 }}
+                                    >
                                         <Link to='/' >
                                             Destinations
                                         </Link>
-                                    </li>
+                                    </motion.li>
 
-                                    <li>
+                                    <motion.li
+                                        initial={{ x: '600px'}}
+                                        animate={{ x: '0px' }}
+                                        transition={{ duration: 0.5, delay: 0.2 }}
+                                    >
                                         <Link to='/' >
                                             Blog
                                         </Link>
-                                    </li>
+                                    </motion.li>
 
-                                    <li>
+                                    <motion.li
+                                        initial={{ x: '-600px' }}
+                                        animate={{ x: '0' }}
+                                        transition={{ duration: 0.5, delay: 0.3 }}
+                                    >
                                         <Link to='/' >
                                             Contact
                                         </Link>
-                                    </li>
+                                    </motion.li>
                                 </ul>
                             </div>
 
                             <div className={styles['social_icons']}>
-                                <span>
+                                <motion.span
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1}}
+                                    transition={{ deration: 0.5, delay: 0.6 }}
+                                >
                                     <i className="fa-brands fa-facebook"></i>
-                                </span>
-                                <span>
+                                </motion.span>
+                                <motion.span
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1}}
+                                    transition={{ deration: 0.5, delay: 0.7 }}
+                                >
                                     <i className="fa-brands fa-instagram"></i>
-                                </span>
-                                <span>
+                                </motion.span>
+                                <motion.span
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1}}
+                                    transition={{ deration: 0.5, delay: 0.8 }}
+                                >
                                     <i className="fa-brands fa-twitter"></i>
-                                </span>
+                                </motion.span>
                             </div>
                         </div>
                     }

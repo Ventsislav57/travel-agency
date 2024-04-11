@@ -104,10 +104,6 @@
         width: 95%;
     }
 
-    .logo_and_search {
-        padding-bottom: 16px;
-    }
-
     .logo_container {
         font-size: 14px;
     }
@@ -115,11 +111,18 @@
     .hamburger_menu {
         display: block;
     }
-  
+
     .navigation_and_social_icons {
-        border-top: 2px solid black;
+        position: relative;
         grid-template-columns: 1fr;
         justify-content: center;
+    }
+
+    .hor_line {
+        width: 100%;
+        position: absolute;
+        top: 20px;
+        border: 1px solid white;
     }
 
     .navigation_element {
