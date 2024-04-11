@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
@@ -7,6 +7,14 @@ export const Navigation = () => {
 
     const [searchValue, setSearchValue] = useState({ search: '' });
     const [showNavigation, setShowNavigation] = useState(false);
+
+
+    useEffect(() => {
+        if (window.innerWidth > 1000) {
+            setShowNavigation(true);
+        } 
+
+    }, [showNavigation])
 
     const changeHandler = (event) => {
 
@@ -21,7 +29,8 @@ export const Navigation = () => {
     }
 
     const hamburgerHandler = () => {
-
+        setShowNavigation((prevShowNavigation) => !prevShowNavigation);
+        console.log(showNavigation);
     }
 
     return (
@@ -51,55 +60,56 @@ export const Navigation = () => {
                             </label>
                         </div>
 
-                        <div className={styles['hamburger_menu']}>
+                        <div className={styles['hamburger_menu']} onClick={hamburgerHandler}>
                             <i className="fa-solid fa-bars"></i>
                         </div>
 
                     </div>
-                    
-                    <div className={styles['navigation_and_social_icons']}>
 
-                        <div className={styles['navigation_container']}>
-                            <ul className={styles['navigation_element']}>
-                                <li>
-                                    <Link to='/' >
-                                        Home
-                                    </Link>
-                                </li>
+                    {showNavigation &&
+                        <div className={styles['navigation_and_social_icons']}>
 
-                                <li>
-                                    <Link to='/' >
-                                        Destinations
-                                    </Link>
-                                </li>
+                            <div className={styles['navigation_container']}>
+                                <ul className={styles['navigation_element']}>
+                                    <li>
+                                        <Link to='/' >
+                                            Home
+                                        </Link>
+                                    </li>
 
-                                <li>
-                                    <Link to='/' >
-                                        Blog
-                                    </Link>
-                                </li>
+                                    <li>
+                                        <Link to='/' >
+                                            Destinations
+                                        </Link>
+                                    </li>
 
-                                <li>
-                                    <Link to='/' >
-                                        Contact
-                                    </Link>
-                                </li>
-                            </ul>
+                                    <li>
+                                        <Link to='/' >
+                                            Blog
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link to='/' >
+                                            Contact
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className={styles['social_icons']}>
+                                <span>
+                                    <i className="fa-brands fa-facebook"></i>
+                                </span>
+                                <span>
+                                    <i className="fa-brands fa-instagram"></i>
+                                </span>
+                                <span>
+                                    <i className="fa-brands fa-twitter"></i>
+                                </span>
+                            </div>
                         </div>
-
-                        <div className={styles['social_icons']}>
-                            <span>
-                                <i className="fa-brands fa-facebook"></i>
-                            </span>
-                            <span>
-                                <i className="fa-brands fa-instagram"></i>
-                            </span>
-                            <span>
-                                <i className="fa-brands fa-twitter"></i>
-                            </span>
-                        </div>
-                    </div>
-
+                    }
                 </div>
             </section>
         
