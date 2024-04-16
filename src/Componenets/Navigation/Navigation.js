@@ -9,12 +9,16 @@ export const Navigation = () => {
 
     const [searchValue, setSearchValue] = useState({ search: '' });
     const [showNavigation, setShowNavigation] = useState(false);
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
 
 
     useEffect(() => {
         if (window.innerWidth > 1000) {
             setShowNavigation(true);
-        } 
+            setIsSmallScreen(false);
+        } else {
+            setIsSmallScreen(true);
+        }
 
     }, [showNavigation])
 
@@ -81,8 +85,8 @@ export const Navigation = () => {
                             <div className={styles['navigation_container']}>
                                 <ul className={styles['navigation_element']}>
                                     <motion.li
-                                        initial={{ x: '600px'}}
-                                        animate={{ x: '0px' }}
+                                        initial={isSmallScreen ? { x: '600px'} : { y: '-200px' }}
+                                        animate={isSmallScreen ? { x: '0px' } : { y: '0px' }}
                                         transition={{ duration: 0.5 }}
                                     >
                                         <Link to='/' >
@@ -91,8 +95,8 @@ export const Navigation = () => {
                                     </motion.li>
 
                                     <motion.li
-                                        initial={{ x: '-600px' }}
-                                        animate={{ x: '0' }}
+                                        initial={isSmallScreen ? { x: '-600px' } : { y: '-200px' }}
+                                        animate={isSmallScreen ? { x: '0' } : { y: '0px' }}
                                         transition={{ duration: 0.5, delay: 0.1 }}
                                     >
                                         <Link to='/' >
@@ -101,8 +105,8 @@ export const Navigation = () => {
                                     </motion.li>
 
                                     <motion.li
-                                        initial={{ x: '600px'}}
-                                        animate={{ x: '0px' }}
+                                        initial={isSmallScreen ? { x: '600px'} : { y: '-200px' }}
+                                        animate={isSmallScreen ? { x: '0px' } : { y: '0px' }}
                                         transition={{ duration: 0.5, delay: 0.2 }}
                                     >
                                         <Link to='/' >
@@ -111,8 +115,8 @@ export const Navigation = () => {
                                     </motion.li>
 
                                     <motion.li
-                                        initial={{ x: '-600px' }}
-                                        animate={{ x: '0' }}
+                                        initial={isSmallScreen ? { x: '-600px' } : { y: '-200px' }}
+                                        animate={isSmallScreen ? { x: '0' } : { y: '0px' }}
                                         transition={{ duration: 0.5, delay: 0.3 }}
                                     >
                                         <Link to='/' >

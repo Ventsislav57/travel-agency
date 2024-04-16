@@ -59,6 +59,10 @@
     align-items: center;
 }
 
+.hor_line {
+    display: none;
+}
+
 .navigation_element {
     display: flex;
     justify-content: space-between;
