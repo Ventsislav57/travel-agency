@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 
 import styles from './Navigation.module.css';
 
+import { register } from '../../services/authService';
+
 
 export const Navigation = () => {
 
@@ -32,6 +34,27 @@ export const Navigation = () => {
 
     const searchHandler = () => {
         
+    }
+
+    const registerHandler = async () => {
+
+        const userData = {
+            name: 'Ivan',
+            username: 'ivan123',
+            email: 'ivan@abv.bg',
+            password: 'Ivan1234!'
+        }
+
+        try {
+            const result = await register(userData);
+
+            console.log(result);
+            
+        } catch (error) {
+
+            console.log(error.message);
+
+        }
     }
 
     const hamburgerHandler = () => {
@@ -118,9 +141,10 @@ export const Navigation = () => {
                                         initial={isSmallScreen ? { x: '-600px' } : { y: '-200px' }}
                                         animate={isSmallScreen ? { x: '0' } : { y: '0px' }}
                                         transition={{ duration: 0.5, delay: 0.3 }}
+                                        onClick={registerHandler}
                                     >
                                         <Link to='/' >
-                                            Contact
+                                            register
                                         </Link>
                                     </motion.li>
                                 </ul>
