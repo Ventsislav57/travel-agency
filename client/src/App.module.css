@@ -1,5 +1,6 @@
 .main_container {
     height: 100vh;
+    /* background: linear-gradient(to top, rgba(0, 0, 0, 0.1)50%, rgba(0, 0, 0, 0.0)50%), url("../public/main_pictures.jpg"); */
     background-image: url('../public/main_pictures.jpg');
     background-size: cover;
     background-position: center;
