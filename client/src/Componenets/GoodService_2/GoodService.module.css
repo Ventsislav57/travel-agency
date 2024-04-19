@@ -1,0 +1,86 @@
+.good_service {
+    height: 100vh;
+    background-color: #293233;
+    display: grid;
+    grid-template-columns: 350px 650px;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    padding-top: 100px;
+}
+
+.title_subtitle_btn {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 100px;
+}
+
+.title_subtitle_btn > h1 {
+    font-size: 46px;
+    color: #f58d54;
+    margin: 0;
+}
+
+.title_subtitle_btn > p {
+    font-size: 20px;
+    color: white;
+}
+
+.title_subtitle_btn > button {
+    width: 70%;
+    padding: 20px 0;
+    background-color: transparent;
+    color: #f58d54;
+    border: 2px solid #f58d54;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.title_subtitle_btn span {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    transition: 1s all;
+}
+
+.title_subtitle_btn .btn:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+}
+
+.img_container {
+    height: 400px; 
+    position: relative;
+}
+
+.big_circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(0, -30%);
+    width: 150px;
+    height: 150px;
+    border: 40px solid #f58d54;
+    border-radius: 100%;
+}
+
+.img > img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+}
+
+.small_circle {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    border: 15px solid #f58d54;
+}
