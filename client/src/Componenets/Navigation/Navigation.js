@@ -15,7 +15,7 @@ export const Navigation = () => {
 
 
     useEffect(() => {
-        if (window.innerWidth > 1000) {
+        if (window.outerWidth  > 1000) {
             setShowNavigation(true);
             setIsSmallScreen(false);
         } else {
@@ -58,6 +58,7 @@ export const Navigation = () => {
     }
 
     const hamburgerHandler = () => {
+        console.log(showNavigation);
         setShowNavigation((prevShowNavigation) => !prevShowNavigation);
         console.log(showNavigation);
     }

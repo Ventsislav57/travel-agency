@@ -1,0 +1,31 @@
+.offerings {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%);
+
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    gap: 40px;
+    justify-content: center;
+    text-align: center;
+}
+
+.offerings > .offering {
+    background-color: #293233;
+    color: white;
+    padding: 40px;
+    border-radius: 25px;
+    border: 7px solid #f58d54;
+}
+
+.offering {
+    display: grid;
+    grid-template-rows: 40px 60px 60px;
+    gap: 10px;
+}
+
+.offerings .img_container > i {
+    font-size: 40px;
+    color: #f58d54;
+}

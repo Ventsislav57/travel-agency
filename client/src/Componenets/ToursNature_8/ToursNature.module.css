@@ -1,0 +1,46 @@
+.toure_nature {
+    position: relative;
+    height: 70vh;
+    background-image: url('../../../public/mountain-lake.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.description_container {
+    position: absolute;
+    top: 20%;
+    left: 22%;
+    width: 300px;
+    color: rgb(248, 248, 248);
+}
+
+.description_container h1 {
+    font-size: 36px;
+}
+
+.description_container p {
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+
+.icon_container {
+    display: flex;
+    gap: 20px;
+    font-size: 26px;
+    margin: 50px 0 20px 0;
+}
+
+.icon_container span {
+    cursor: pointer;
+}
+
+.description_container > p > span {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.description_container > p > span:hover {
+    font-weight: bolder;
+}

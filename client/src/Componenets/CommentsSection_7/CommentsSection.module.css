@@ -1,0 +1,27 @@
+.comments {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    row-gap: 0px;
+    height: 100vh;
+    background-color: #283a3c;
+    color: white;
+    padding-top: 50px;
+}
+
+.comments span {
+    font-size: 38px;
+    color: #f58d54;
+}
+
+.comments p {
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+.comments h2 {
+    color: #f58d54;
+}
