@@ -1,0 +1,54 @@
+.pictures_section {
+    position: relative;
+    height: 100vh;
+    background-color: #496b6f;
+}
+
+.smaller_pictures img {
+    position: absolute;
+    top: 10%;
+    left: 17%;
+    transform: translate(20%, 10%);
+    width: 15%;
+}
+
+
+.medium_pictures img {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 23%;
+    z-index: 2;
+    border: 16px solid #f58d54;
+    border-radius: 100%;
+}
+
+.bigger_pictures img {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(80%, -50%);
+    width: 40%;
+    border: 4px solid white;
+    border-radius: 100%;
+}
+
+.smaller_circle {
+    position: absolute;
+    top: 48%;
+    left: 20%;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    border: 15px solid #f58d54;
+}
+
+.bigger_circle {
+    position: absolute;
+    top: 70%;
+    right: 17%;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: 36px solid #3c4041;
+}
