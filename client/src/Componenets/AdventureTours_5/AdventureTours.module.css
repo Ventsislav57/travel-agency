@@ -1,0 +1,81 @@
+.adventure_tours {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;    
+    height: 100vh;
+    background-color: #2a4649;
+}
+
+.title h1 {
+    font-size: 56px;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+
+.adventures_container {
+    display: grid;
+    grid-template-columns: 350px 350px 350px;
+    gap: 50px;
+}
+
+.adventures_container .adventure img {
+    width: 60%;
+}
+
+.adventure {
+    background-color: white;
+    padding: 30px;
+    border-radius: 40px;
+}
+
+.img_container {
+    text-align: center;
+}
+
+.adventure > h2 {
+    text-align: center;
+}
+
+.adventure > p {
+    padding: 20px 0 10px 0;
+    font-size: 20px;
+    color: gray;
+    line-height: 2;
+}
+
+.adventure .link {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+.adventure .link i {
+    margin-left: 6px;
+}
+
+.adventure .link:hover {
+    color: black;
+    font-weight: 700;
+}
+
+.adventure .link:hover i {
+    margin-left: 18px;
+}
+
+.adventure_tours > .image_from {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.image_from > span {
+    text-decoration: underline;
+    cursor: pointer;
+}
