@@ -1,9 +1,26 @@
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
+import { animatePropsForSmallerPictures, animatePropsForMediumPictures, animatePropsForBiggerPictures, animatePropsForSmallerCircle, animatePropsForBiggerCircle } from './animateProps.js';
 import styles from './PicturesSection.module.css';
 
 
 export const PicturesSection = () => {
 
+    const [ ref, inView ] = useInView();
+    const [ isInView, setIsInView ] = useState('hidden');
+
+
+    useEffect(() => {
+
+        if (inView) {
+            setIsInView('visible');
+        } else {
+            setIsInView('hidden');
+        }
+
+    }, [inView]);
 
 
     return (
@@ -11,20 +28,50 @@ export const PicturesSection = () => {
         <section className={styles['pictures_section']}>
 
             <div className={styles['smaller_pictures']}>
-                <img src='./mountain_vilage-modified.png' alt="pictures" />
+                <motion.img 
+                    ref={ref}
+                    initial='hidden'
+                    animate={isInView}
+                    variants={animatePropsForSmallerPictures}
+                    src='./mountain_vilage-modified.png' alt="pictures" 
+                ></motion.img>
             </div>
 
             <div className={styles['medium_pictures']}>
-                <img src='./sea_beach-modified.png' alt="pictures" />
+                <motion.img 
+                    ref={ref}
+                    initial='hidden'
+                    animate={isInView}
+                    variants={animatePropsForMediumPictures}
+                    src='./sea_beach-modified.png' alt="pictures" 
+                ></motion.img>
             </div>
 
             <div className={styles['bigger_pictures']}>
-                <img src='./forest-modified.png' alt='pictures' />
+                <motion.img 
+                    ref={ref}
+                    initial='hidden'
+                    animate={isInView}
+                    variants={animatePropsForBiggerPictures}
+                    src='./forest-modified.png' alt='pictures' 
+                ></motion.img>
             </div>
 
-            <div className={styles['smaller_circle']}></div>
+            <motion.div 
+                ref={ref}
+                initial='hidden'
+                animate={isInView}
+                variants={animatePropsForSmallerCircle}
+                className={styles['smaller_circle']}
+            ></motion.div>
 
-            <div className={styles['bigger_circle']}></div>
+            <motion.div 
+                ref={ref}
+                initial='hidden'
+                animate={isInView}
+                variants={animatePropsForBiggerCircle}
+                className={styles['bigger_circle']}
+            ></motion.div>
 
         </section>
 
