@@ -19,6 +19,8 @@ export const register = async (userData) => {
     } else {
         const errorMessage = await response.json();
 
-        throw { message: errorMessage.message }
+        throw new Error({ message: errorMessage.message })
     }
 }
+
+

@@ -7,6 +7,7 @@ import { AdventureTours } from "./Componenets/AdventureTours_5/AdventureTours";
 import { AdventureStart } from "./Componenets/AdventureStart_6/AdventureStart";
 import { CommentsSection } from "./Componenets/CommentsSection_7/CommentsSection";
 import { ToursNature } from "./Componenets/ToursNature_8/ToursNature";
+import { CreateComment } from "./Componenets/CreateComment_9/CreateComment";
 
 
 function App() {
@@ -15,22 +16,15 @@ function App() {
     return (
         <>
             <Navigation />   
-
             <Home />
-        
             <GoodService />
-
             <PicturesSection />
-
             <GroupSection />
-
             <AdventureTours />
-
             <AdventureStart />
-
             <CommentsSection />
-
             <ToursNature />
+            <CreateComment />
         </>
     )
 }
