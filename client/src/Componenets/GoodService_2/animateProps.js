@@ -1,6 +1,6 @@
 export const animatePropsForText = {
     visible: { x: '0px', transition: { duration: 1 } },
-    hidden:  { x: '-400px' }
+    hidden:  { x: '-800px' }
 }
 
 export const animatePropsForBigCircle = {

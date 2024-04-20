@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 
 import styles from './HeroSection.module.css';
 
@@ -13,16 +14,42 @@ export const HeroSection = () => {
         <div className={styles['hero_section']}>
 
             <div className={styles['titles_descriptions']}>
-                <h5>Travel Agency</h5>
-                <h1>Wonderful tours</h1>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+                <motion.h5
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.7, delay: 0.4 }}
+                >
+                    Travel Agency
+                </motion.h5>
+
+                <motion.h1
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.7 }}
+                >
+                    Wonderful tours
+                </motion.h1>
+
+
+                <motion.p
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.7, delay: 0.4 }}
+                >
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse.
+                </motion.p>
             </div>
 
-            <div className={styles['btn_container']}>
+            <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className={styles['btn_container']}
+            >
                 <button onClick={btnHandler}>
                     <span>Read More</span>
                 </button>
-            </div>
+            </motion.div>
 
         </div>
     )

@@ -1,9 +1,8 @@
 .offerings {
     position: absolute;
     left: 50%;
-    top: 100%;
-    transform: translate(-50%, -50%);
-
+    bottom: 0%;
+    transform: translate(-50%, 50%);
     display: grid;
     grid-template-columns: 250px 250px 250px 250px;
     gap: 40px;

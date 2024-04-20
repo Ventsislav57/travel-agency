@@ -8,6 +8,7 @@ import { AdventureStart } from "./Componenets/AdventureStart_6/AdventureStart";
 import { CommentsSection } from "./Componenets/CommentsSection_7/CommentsSection";
 import { ToursNature } from "./Componenets/ToursNature_8/ToursNature";
 import { CreateComment } from "./Componenets/CreateComment_9/CreateComment";
+import { Offerings } from "./Componenets/Home/Offerings/Offerings";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <>
             <Navigation />   
             <Home />
+            <Offerings />
             <GoodService />
             <PicturesSection />
             <GroupSection />
