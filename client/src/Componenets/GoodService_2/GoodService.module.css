@@ -59,9 +59,8 @@
 
 .big_circle {
     position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(0, -30%);
+    top: -10%;
+    right: -10%;
     width: 150px;
     height: 150px;
     border: 40px solid #f58d54;
