@@ -1,0 +1,173 @@
+.sing_in {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;    
+    border-radius: 20px;
+    padding: 40px;
+    z-index: 4;
+}
+
+.close {
+    position: absolute;
+    top: 3%;
+    right: 6%;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.close i {
+    font-size: 30px;
+}
+
+.title h1 {
+    font-size: 26px;
+    margin-bottom: 0px;
+}
+
+.error_container {
+    height: 30px;
+    padding-bottom: 40px;
+}
+
+.error_container > p {
+    font-size: 18px;
+    color: rgb(255, 0, 0);
+}
+
+.sing_in_form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.input_container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input_container label {
+    font-size: 20px;
+}
+
+.input_container input {
+    padding: 15px 10px;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.error_input {
+    border: 2px solid red;
+}
+
+.input_container input:focus {
+    border: 2px solid white;
+}
+
+
+.input_container > .view_passwold {
+    position: absolute;
+    top: 55.7%;
+    right: 14%;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.password_rules {
+    position: absolute;
+    top: 57%;
+    right: 10%;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.password_rules {
+    border: 1px solid white;
+    border-radius: 100%;
+    padding: 3px 7px;
+    font-size: 14px;
+}
+
+.password_rules_container {
+    position: absolute;
+    top: 35%;
+    right: 0%;
+    transform: translateX(70%);
+    background-color: rgb(49, 49, 49);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.password_rules_container ul {
+    padding: 0 18px;
+}
+
+.input_container > .view_re_passwold {
+    position: absolute;
+    top: 71%;
+    right: 11%;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+
+.button_container .btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all .7s;
+}
+
+.button_container .btn:hover {
+    opacity: 0.7;
+}
+
+.already_have_acount span {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.already_have_acount span:hover {
+    font-weight: bolder;
+}
+
+.socials_login {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.socials_login > div {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(30, 29, 29);
+    padding: 15px 0;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.socials_login > div > i {
+    margin-right: 10px;
+}

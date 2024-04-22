@@ -1,20 +1,49 @@
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';  
 
+import { animatePropForBigCircle, animatePropForImage } from './animateProps.js';
 import styles from './AdventureStart.module.css';
 
 
 export const AdventureStart = () => {
 
+    const [ ref, inView ] = useInView();
+    const [isInView, setIsInView] = useState('hidden');
 
+
+    useEffect(() => {
+
+        if (inView) {
+            setIsInView('visible');
+        } else {
+            setIsInView('hidden');
+        }
+
+    }, [inView])
 
     return (
         <section className={styles['adventure_start']}>
 
             <div className={styles['img_circles']}>
                 <div className={styles['img_container']}>
-                    <img src='./coral_rift-modified.png' alt='pictures' />
+                    <motion.img 
+                        ref={ref}
+                        initial='hidden'
+                        animate={isInView}
+                        variants={animatePropForImage}
+                        src='./coral_rift-modified.png' alt='pictures'
+                    ></motion.img>
                 </div>
+
                 <div className={styles['small_circle']}></div>
-                <div className={styles['big_circle']}></div>
+
+                <motion.div 
+                    initial='hidden'
+                    animate={isInView}
+                    variants={animatePropForBigCircle}
+                    className={styles['big_circle']}
+                ></motion.div>
             </div>
 
             <div className={styles['article_container']}>

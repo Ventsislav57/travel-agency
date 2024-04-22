@@ -1,12 +1,12 @@
 .adventure_start {
     position: relative;
     height: 100vh;
-    background-color: #2d5155;
+    background-color: #293233;
 }
 
 .img_container {
     position: absolute;
-    top: 10%;
+    top: 7%;
     left: 26%;
     z-index: 2;
     
@@ -32,18 +32,18 @@
 .big_circle {
     width: 150px;
     height: 150px;
-    border: 36px solid #488e96;
+    border: 36px solid #3d6c72;
     border-radius: 100%;
     position: absolute;
     top: 10%;
-    right: 25%;
+    right: 35%;
 }
 
 .article_container {
     width: 22%;
     background-color: white;
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 50%;
     padding: 50px;
     border-radius: 30px;

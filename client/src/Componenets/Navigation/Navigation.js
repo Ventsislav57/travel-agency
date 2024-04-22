@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import styles from './Navigation.module.css';
 
-import { register } from '../../services/authService';
 
 
-export const Navigation = () => {
+export const Navigation = ({ singInHandler }) => {
 
     const [searchValue, setSearchValue] = useState({ search: '' });
     const [showNavigation, setShowNavigation] = useState(false);
@@ -36,31 +34,30 @@ export const Navigation = () => {
         
     }
 
-    const registerHandler = async () => {
+    const buttonHandler = (navigate) => {
 
-        const userData = {
-            name: 'Ivan',
-            username: 'ivan123',
-            email: 'ivan@abv.bg',
-            password: 'Ivan1234!'
-        }
-
-        try {
-            const result = await register(userData);
-
-            console.log(result);
-            
-        } catch (error) {
-
-            console.log(error.message);
-
+        if (navigate === 'home') {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else if (navigate === 'destinations') {
+            window.scrollTo({
+                top: 3800,
+                behavior: 'smooth'
+            });
+        } else if (navigate === 'blog') {
+            window.scrollTo({
+                top: 5780,
+                behavior: 'smooth'
+            });
+        } else if (navigate === 'sing-in') {
+            singInHandler();
         }
     }
 
     const hamburgerHandler = () => {
-        console.log(showNavigation);
         setShowNavigation((prevShowNavigation) => !prevShowNavigation);
-        console.log(showNavigation);
     }
 
     return (
@@ -113,9 +110,9 @@ export const Navigation = () => {
                                         animate={isSmallScreen ? { x: '0px' } : { y: '0px' }}
                                         transition={{ duration: 0.5 }}
                                     >
-                                        <Link to='/' >
+                                        <button  onClick={() => buttonHandler('home')} >
                                             Home
-                                        </Link>
+                                        </button>
                                     </motion.li>
 
                                     <motion.li
@@ -123,9 +120,9 @@ export const Navigation = () => {
                                         animate={isSmallScreen ? { x: '0' } : { y: '0px' }}
                                         transition={{ duration: 0.5, delay: 0.1 }}
                                     >
-                                        <Link to='/' >
+                                        <button onClick={() => buttonHandler('destinations')} >
                                             Destinations
-                                        </Link>
+                                        </button>
                                     </motion.li>
 
                                     <motion.li
@@ -133,20 +130,19 @@ export const Navigation = () => {
                                         animate={isSmallScreen ? { x: '0px' } : { y: '0px' }}
                                         transition={{ duration: 0.5, delay: 0.2 }}
                                     >
-                                        <Link to='/' >
+                                        <button onClick={() => buttonHandler('blog')} >
                                             Blog
-                                        </Link>
+                                        </button>
                                     </motion.li>
 
                                     <motion.li
                                         initial={isSmallScreen ? { x: '-600px' } : { y: '-200px' }}
                                         animate={isSmallScreen ? { x: '0' } : { y: '0px' }}
                                         transition={{ duration: 0.5, delay: 0.3 }}
-                                        onClick={registerHandler}
                                     >
-                                        <Link to='/' >
-                                            register
-                                        </Link>
+                                        <button onClick={() => buttonHandler('sing-in')} >
+                                            Sing In
+                                        </button>
                                     </motion.li>
                                 </ul>
                             </div>

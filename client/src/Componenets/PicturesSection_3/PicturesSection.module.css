@@ -1,12 +1,12 @@
 .pictures_section {
     position: relative;
-    height: 100vh;
-    background-color: #496b6f;
+    height: 90vh;
+    background-color: #323e3f;
 }
 
 .smaller_pictures img {
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 24%;
     width: 15%;
 }
@@ -14,8 +14,8 @@
 
 .medium_pictures img {
     position: absolute;
-    top: 50%;
-    left: 25%;
+    top: 40%;
+    left: 22%;
     width: 23%;
     z-index: 2;
     border: 16px solid #f58d54;
@@ -24,7 +24,7 @@
 
 .bigger_pictures img {
     position: absolute;
-    top: 10%;
+    top: 5%;
     right: 20%;
     width: 40%;
     border: 4px solid white;
@@ -33,7 +33,7 @@
 
 .smaller_circle {
     position: absolute;
-    top: 48%;
+    top: 35%;
     left: 20%;
     width: 70px;
     height: 70px;
@@ -43,10 +43,10 @@
 
 .bigger_circle {
     position: absolute;
-    top: 70%;
+    top: 60%;
     right: 17%;
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    border: 36px solid #3c4041;
+    border: 36px solid #58686c;
 }

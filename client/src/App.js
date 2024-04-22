@@ -9,14 +9,23 @@ import { CommentsSection } from "./Componenets/CommentsSection_7/CommentsSection
 import { ToursNature } from "./Componenets/ToursNature_8/ToursNature";
 import { CreateComment } from "./Componenets/CreateComment_9/CreateComment";
 import { Offerings } from "./Componenets/Home/Offerings/Offerings";
+import { useState } from "react";
+import { Auth } from "./Componenets/Auth/Auth";
+
 
 
 function App() {
 
+    const [ showSingInPopUp, setShowSingInPopUp ] = useState(false);
 
+    function singIn() {
+        setShowSingInPopUp(prevValue => !prevValue);
+    }
+    
     return (
         <>
-            <Navigation />   
+            <Navigation singInHandler={ singIn } />
+            {showSingInPopUp && <Auth showSingHandler={ singIn }/>}
             <Home />
             <Offerings />
             <GoodService />
@@ -26,7 +35,7 @@ function App() {
             <AdventureStart />
             <CommentsSection />
             <ToursNature />
-            <CreateComment />
+            <CreateComment /> 
         </>
     )
 }

@@ -1,4 +1,8 @@
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';  
 
+import { animatePropForCommet } from './animateProps.js';
 
 import styles from './ToursNature.module.css';
 
@@ -7,10 +11,31 @@ import styles from './ToursNature.module.css';
 
 export const ToursNature = () => {
 
+
+    const [ ref, inView ] = useInView();
+    const [isInView, setIsInView] = useState('hidden');
+
+
+    useEffect(() => {
+
+        if (inView) {
+            setIsInView('visible');
+        } else {
+            setIsInView('hidden');
+        }
+
+    }, [inView])
+
     return (
         <section className={styles['toure_nature']}>
 
-            <div className={styles['description_container']}>
+            <motion.div 
+                ref={ref}
+                initial='hidden'
+                animate={isInView}
+                variants={animatePropForCommet}
+                className={styles['description_container']}
+            >
 
                 <h1>Toures Nature & Wildlife</h1>
 
@@ -42,7 +67,7 @@ export const ToursNature = () => {
                         Images from <span>Wiop22</span>
                     </p>
 
-            </div>
+            </motion.div>
 
         </section>
     )

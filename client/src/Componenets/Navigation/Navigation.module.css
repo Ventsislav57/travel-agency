@@ -1,14 +1,13 @@
 .header {
     width: 100%;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 4;
 }
 
 .attribute_container {
     width: 80%;
     margin: auto;
-    padding: 20px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -75,10 +74,14 @@
     text-align: end;
 }
 
-.navigation_element li a {
+.navigation_element li button {
     color: white;
+    background-color: transparent;
     text-decoration: none;
-    font-size: 18px
+    font-size: 18px; 
+    border: none;
+    cursor: pointer;
+    padding: 20px;
 }
 
 .social_icons {

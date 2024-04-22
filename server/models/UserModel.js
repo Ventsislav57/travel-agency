@@ -4,15 +4,11 @@ const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/env.js');
 
 const UserSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, 'Name is required!'],
-        minLength: [3, 'Name must have at least 3 charactes!']
-    },
     username: {
         type: String,
         required: [true, 'Username is required!'],
-        minLength: [4, 'Username must have at least 4 characters!']
+        minLength: [4, 'Username must have at least 4 characters!'],
+        maxLength: [13, 'Username must\'t have above 13 charactes!']
     },
     email: {
         type: String,
@@ -22,8 +18,12 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        match: [/^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{8,})\S$/, 'Please enter a valid password.']
+        match: [/^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{7,})\S$/, 'Password must have at least 8 characters. 1 Uppercase letter, 1 number and 1 symbol.']
     },
+    comments: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Comment'
+    }]
 })
 
 UserSchema.pre('save', function (next) {
