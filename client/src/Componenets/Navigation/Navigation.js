@@ -1,18 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
 
 import styles from './Navigation.module.css';
-
+import { userContext } from '../../context/UserContext';
 
 
 export const Navigation = ({ singInHandler }) => {
 
-    const [searchValue, setSearchValue] = useState({ search: '' });
-    const [showNavigation, setShowNavigation] = useState(false);
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [ searchValue, setSearchValue ] = useState({ search: '' });
+    const [ showNavigation, setShowNavigation ] = useState(false);
+    const [ isSmallScreen, setIsSmallScreen ] = useState(false);
+    const [ isLogin, setIsLogin ] = useState(false);
+
+    const { user, removeUserData } = useContext(userContext);
 
 
     useEffect(() => {
+
+        if (user.user) {
+            setIsLogin(true);
+        }
+
         if (window.outerWidth  > 1000) {
             setShowNavigation(true);
             setIsSmallScreen(false);
@@ -20,7 +28,7 @@ export const Navigation = ({ singInHandler }) => {
             setIsSmallScreen(true);
         }
 
-    }, [showNavigation])
+    }, [user, showNavigation])
 
     const changeHandler = (event) => {
 
@@ -32,6 +40,10 @@ export const Navigation = ({ singInHandler }) => {
 
     const searchHandler = () => {
         
+    }
+
+    const logout = () => {
+        removeUserData()
     }
 
     const buttonHandler = (navigate) => {
@@ -140,10 +152,20 @@ export const Navigation = ({ singInHandler }) => {
                                         animate={isSmallScreen ? { x: '0' } : { y: '0px' }}
                                         transition={{ duration: 0.5, delay: 0.3 }}
                                     >
-                                        <button onClick={() => buttonHandler('sing-in')} >
-                                            Sing In
-                                        </button>
+                                        {isLogin 
+                                            ?   
+                                                <button onClick={logout} >
+                                                    Logout
+                                                </button>
+
+                                            :   <button onClick={() => buttonHandler('sing-in')} >
+                                                    Sing In
+                                                </button>
+                                        }
+                                      
                                     </motion.li>
+
+                                    {isLogin && <li className={styles['welcome']}>Welcome {user.user.username}</li>}
                                 </ul>
                             </div>
 

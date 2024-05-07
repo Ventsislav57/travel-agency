@@ -1,5 +1,5 @@
 
-import { useRef, useState } from 'react';
+import { useRef, useState,useContext } from 'react';
 import { motion } from 'framer-motion';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -7,7 +7,7 @@ import withReactContent from 'sweetalert2-react-content';
 
 import styles from './SingUp.module.css';
 import { register } from '../../../services/authService';
-
+import { userContext } from '../../../context/UserContext';
 
 export const SingUp = ({ showSingHandler, viewHandler }) => {
 
@@ -24,6 +24,8 @@ export const SingUp = ({ showSingHandler, viewHandler }) => {
         password: null,
         rePassword: null
     });
+
+    const { addUserData } = useContext(userContext);
 
     const MySwal = withReactContent(Swal);
 
@@ -81,8 +83,9 @@ export const SingUp = ({ showSingHandler, viewHandler }) => {
             setErrorMessage('');
 
             try {
-                await register(userData);
+                const result = await register(userData);
 
+                addUserData(result);
                 setUserData({username: '', email: '', password: '', rePassword: ''});
 
                 MySwal.fire({

@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
 import styles from './SingIn.module.css';
 import { login } from '../../../services/authService';
+import { userContext } from '../../../context/UserContext';
 
 export const SingIn = ({ showSingHandler, viewHandler }) => {
 
     const [ userData, setUserData ] = useState({ username: '', password: '' });
     const [ type, setType ] = useState('password');
     const [ error, setError] = useState(false);
+
+    const { addUserData } = useContext(userContext);
 
     const MySwal = withReactContent(Swal);
 
@@ -29,15 +32,16 @@ export const SingIn = ({ showSingHandler, viewHandler }) => {
 
         if (userData['username'].length < 4 || userData['username'].length > 13 ) {
             setError(true);
-
+            
         } else if (userData['password'].length < 7 || userData['password'] > 20 ) {
             setError(true);
 
         } else {
-
             try {
-                await login(userData);
+                const result = await login(userData);
                 setUserData({ username: '', password: '' });
+
+                addUserData(result);
 
                 MySwal.fire({
                     title: 'Successful register',
@@ -52,7 +56,7 @@ export const SingIn = ({ showSingHandler, viewHandler }) => {
                 }, 2000);
 
             } catch (error) {
-
+                console.log(error);
                 setError(true);
             }
 

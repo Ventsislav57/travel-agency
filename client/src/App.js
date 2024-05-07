@@ -12,6 +12,7 @@ import { Offerings } from "./Componenets/Home/Offerings/Offerings";
 import { useState } from "react";
 import { Auth } from "./Componenets/Auth/Auth";
 
+import { UserProvider } from "./context/UserContext";
 
 
 function App() {
@@ -24,8 +25,11 @@ function App() {
     
     return (
         <>
-            <Navigation singInHandler={ singIn } />
-            {showSingInPopUp && <Auth showSingHandler={ singIn }/>}
+            <UserProvider>
+                <Navigation singInHandler={ singIn } />
+                {showSingInPopUp && <Auth showSingHandler={ singIn }/>}
+            </UserProvider>
+
             <Home />
             <Offerings />
             <GoodService />
