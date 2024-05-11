@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+
+import { userContext } from '../../context/UserContext';
 
 import styles from './CreateComment.module.css';
+import { createComment } from '../../services/commentService';
 
 
 export const CreateComment = () => {
 
-    const [userData, setUserData] = useState({
-        nameLastname: '',
+    const [commentData, setCommentData] = useState({
+        username: '',
         email: '',
         comment: ''
     });
@@ -15,25 +18,36 @@ export const CreateComment = () => {
     const [errorFields, setErrorFields] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
+    const { user } = useContext(userContext);
 
+    useEffect(() => {
+        setCommentData(prev =>  ({
+            ...prev,
+            username: user.user.username,
+            email: user.user.email
+        }))
+    },[])
 
-    function submitCommet(e) {
+    async function submitCommet(e) {
         e.preventDefault();
 
-        const validNames = new RegExp(/^\w{3,10}\s+\w{3,10}$/);
         const validEmail = new RegExp(/^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/);
 
-        if (!validNames.test(userData['nameLastname'])) {
+        if (commentData.username.length < 4 || commentData.username.length > 13) {
             setError(true);
-            setErrorFields('names');
-            setErrorMessage('Please enter a valid name and last name.');
+            setErrorFields('username');
+            if (commentData.username.length < 5) {
+                setErrorMessage('Username must have at least 4 characters.');
+            } else {
+                setErrorMessage('Username must\'t have above 13 characters.');
+            }
 
-        } else if (!validEmail.test(userData['email'])) {
+        } else if (!validEmail.test(commentData['email'])) {
             setError(true);
             setErrorFields('email');
             setErrorMessage('Please enter a valid email address.');
 
-        } else if (userData['comment']?.length === 0) {
+        } else if (commentData['comment'].length === 0) {
             setError(true);
             setErrorFields('comment');
             setErrorMessage('Please enter a comment.');
@@ -43,6 +57,31 @@ export const CreateComment = () => {
             setErrorMessage('');
             setErrorFields('');
 
+            try {
+
+                const ratingAndOwner = {
+                    ratings: [0],
+                    owner: user.user._id
+                }
+                
+                const result = await createComment({ ...commentData, ...ratingAndOwner });
+
+                if (user.user.email) {
+                    setCommentData(() => ({
+                        username: '',
+                        email: '',
+                        comment: ''
+                    }));
+                } else {
+                    setCommentData(() => ({
+                        comment: ''
+                    }));
+                }
+
+            } catch (error) {
+                setError(true);
+                setErrorMessage('We have problem.');
+            }
 
         }
     }
@@ -60,8 +99,8 @@ export const CreateComment = () => {
 
         } else {
 
-            setUserData(oldUserData => ({
-                ...oldUserData,
+            setCommentData(oldCommentData => ({
+                ...oldCommentData,
                 [e.target.name]: e.target.value
             }))
         }
@@ -98,14 +137,15 @@ export const CreateComment = () => {
 
                     <div className={styles['name_email']}>
 
-                        <div className={styles['name_lastname']}>
-                            <label htmlFor='name_lastname'></label>
+                        <div className={styles['username']}>
+                            <label htmlFor='username'></label>
                             <input 
                                 className={error && errorFields === 'names' ? styles['error_input'] : ''}
-                                id='name_lastname'
-                                name='nameLastname'
+                                id='username'
+                                name='username'
                                 type='text'
-                                placeholder='Enter name and las tname'
+                                placeholder='Enter your username'
+                                value={commentData.username}
                                 onChange={changeHandler}
                                 autoComplete='off'
                             />
@@ -119,6 +159,7 @@ export const CreateComment = () => {
                                 name='email'
                                 type='text'
                                 placeholder='Enter a valid email address'
+                                value={commentData.email}
                                 onChange={changeHandler}
                                 autoComplete='off'
                             />
@@ -126,13 +167,14 @@ export const CreateComment = () => {
                     </div>
 
                     <div className={styles['comment']}>
-                        <label htmlFor='comment'>{userData['comment']?.length} / 100</label>
+                        <label htmlFor='comment'>{commentData['comment']?.length} / 100</label>
                         <textarea
                             className={error && errorFields === 'comment' ? styles['error_input'] : ''}
                             id='comment'
                             name='comment'
                             type='text'
                             placeholder='Enter your comment'
+                            value={commentData.comment}
                             onChange={changeHandler}
                             onKeyDown={handleKeyDown}
                         />
