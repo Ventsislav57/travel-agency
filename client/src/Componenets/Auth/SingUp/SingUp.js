@@ -1,5 +1,5 @@
 
-import { useRef, useState,useContext } from 'react';
+import { useRef, useState, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -28,6 +28,13 @@ export const SingUp = ({ showSingHandler, viewHandler }) => {
     const { addUserData } = useContext(userContext);
 
     const MySwal = withReactContent(Swal);
+
+
+    useEffect(() => {
+        // window.scrollTo(0,0);
+        document.body.style.overflow = "hidden";
+        return () => (document.body.style.overflow = "auto");
+    },[]);
 
     function changeHandler(event) {
         setError(false);

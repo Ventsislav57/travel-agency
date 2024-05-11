@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -17,6 +17,12 @@ export const SingIn = ({ showSingHandler, viewHandler }) => {
 
     const MySwal = withReactContent(Swal);
 
+    useEffect(() => {
+        // window.scrollTo(0,0);
+        document.body.style.overflow = "hidden";
+        return () => (document.body.style.overflow = "auto");
+    },[]);
+
     function changeHandler(event) {
         setError(false);
 
@@ -25,7 +31,6 @@ export const SingIn = ({ showSingHandler, viewHandler }) => {
             [event.target.name]: event.target.value
         }))
     }
-
 
     async function submitHandler (event) {
         event.preventDefault();
