@@ -20,7 +20,7 @@ exports.register = async (userData) => {
     return createToken(user);
 }
 
-exports.login = async(userData) => {
+exports.login = async (userData) => {
 
     const user = await User.findOne({ username: userData['username'] });
 
@@ -36,6 +36,43 @@ exports.login = async(userData) => {
 
     return createToken(user);
 
+}
+
+exports.getUserData = async (userId) => {
+
+    const user = await User.findOne({ _id: userId });
+
+    if (!user) {
+        throw new Error('User not found.');
+    }
+
+    return user;
+
+}
+
+exports.editUserData = async (userId, userData) => {
+
+    const user = await User.findByIdAndUpdate(userId, userData, { runValidators: true });
+
+
+    if (!user) {
+        throw new Error('User not found.');
+    }
+
+    return user;
+}
+
+exports.deleteProfile = async (userId) => {
+
+    console.log(userId);
+
+    const user = await User.findByIdAndDelete(userId);
+
+    if (!user) {
+        throw new Error('User not found.');
+    }
+
+    return user;
 }
 
 const createToken = (user) => {

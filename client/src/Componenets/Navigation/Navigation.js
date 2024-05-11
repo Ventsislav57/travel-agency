@@ -5,20 +5,22 @@ import styles from './Navigation.module.css';
 import { userContext } from '../../context/UserContext';
 
 
-export const Navigation = ({ singInHandler }) => {
+export const Navigation = ({ singInHandler, profileHandler }) => {
 
     const [ searchValue, setSearchValue ] = useState({ search: '' });
     const [ showNavigation, setShowNavigation ] = useState(false);
     const [ isSmallScreen, setIsSmallScreen ] = useState(false);
     const [ isLogin, setIsLogin ] = useState(false);
 
-    const { user, removeUserData } = useContext(userContext);
+    const { user } = useContext(userContext);
 
 
     useEffect(() => {
-
+        
         if (user.user) {
             setIsLogin(true);
+        } else {
+            setIsLogin(false);
         }
 
         if (window.outerWidth  > 1000) {
@@ -40,10 +42,6 @@ export const Navigation = ({ singInHandler }) => {
 
     const searchHandler = () => {
         
-    }
-
-    const logout = () => {
-        removeUserData()
     }
 
     const buttonHandler = (navigate) => {
@@ -154,8 +152,8 @@ export const Navigation = ({ singInHandler }) => {
                                     >
                                         {isLogin 
                                             ?   
-                                                <button onClick={logout} >
-                                                    Logout
+                                                <button onClick={profileHandler} >
+                                                    Profile
                                                 </button>
 
                                             :   <button onClick={() => buttonHandler('sing-in')} >
@@ -165,11 +163,11 @@ export const Navigation = ({ singInHandler }) => {
                                       
                                     </motion.li>
 
-                                    {isLogin && <li className={styles['welcome']}>Welcome {user.user.username}</li>}
                                 </ul>
                             </div>
 
                             <div className={styles['social_icons']}>
+                               
                                 <motion.span
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1}}
@@ -192,6 +190,7 @@ export const Navigation = ({ singInHandler }) => {
                                     <i className="fa-brands fa-twitter"></i>
                                 </motion.span>
                             </div>
+
                         </div>
                     }
                 </div>

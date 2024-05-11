@@ -1,0 +1,160 @@
+.profile {
+    width: 40%;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255,255,255, 0.9);
+    padding: 50px;
+    border-radius: 20px;
+    z-index: 5;
+}
+
+.close {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.main_info {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 50px;
+}
+
+.img_container img {
+    width: 100%;
+}
+
+.basic_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+}
+
+.profesion {
+    color: rgb(1, 1, 95);
+}
+
+.btn_container button {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0);
+    color: gray;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: all .4s;
+}
+
+.btn_container button:hover {
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+.user_data {
+    margin-top: 10px;
+}
+
+.about_comments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 18px;
+}
+
+.about_comments span {
+    cursor: pointer;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+
+.about_comments span:hover {
+    font-weight: 600;
+    border-bottom: 1px solid gray;
+}
+
+.picked {
+    border-bottom: 1px solid black;
+    font-weight: bolder;
+
+}
+
+.error_container {
+    text-align: center;
+    height: 4px;
+    color: red;
+    font-weight: bolder;
+    padding: 20px 0;
+}
+
+.about {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    line-height: 40px;
+}
+
+.user_info {
+    font-weight: bolder;
+}
+
+.user_record {
+    color: rgb(1, 1, 95);
+    font-weight: bolder;
+}
+
+.input_container {
+    margin-bottom: 10px;
+
+}
+
+.input_container:first-of-type {
+    margin-top: 14px;
+}
+
+.input_container input{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.input_container > .input_error {
+    border: 1px solid red;
+}
+
+.dropdown .phone_code {
+    width: 50px;
+}
+
+.logout_btn {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.logout_btn button {
+    width: 200px;
+    padding: 18px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    background-color: rgb(1, 1, 95);
+    color: white;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.logout_btn .delete_profile {
+    background-color: red;
+    margin-left: 10px;
+}

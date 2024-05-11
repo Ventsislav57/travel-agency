@@ -13,33 +13,39 @@ import { useState } from "react";
 import { Auth } from "./Componenets/Auth/Auth";
 
 import { UserProvider } from "./context/UserContext";
+import { Profile } from "./Componenets/Profile/Profile";
 
 
 function App() {
 
     const [ showSingInPopUp, setShowSingInPopUp ] = useState(false);
+    const [ profileInfo, setProfileInfo ] = useState(false);
 
     function singIn() {
         setShowSingInPopUp(prevValue => !prevValue);
+    }
+
+    function profileHandler() {
+        setProfileInfo(prevValue => !prevValue);
     }
     
     return (
         <>
             <UserProvider>
-                <Navigation singInHandler={ singIn } />
+                <Navigation singInHandler={ singIn } profileHandler={ profileHandler } />
                 {showSingInPopUp && <Auth showSingHandler={ singIn }/>}
+                {profileInfo && <Profile profileHandler={profileHandler} /> }
+                <Home />
+                <Offerings />
+                <GoodService />
+                <PicturesSection />
+                <GroupSection />
+                <AdventureTours />
+                <AdventureStart />
+                <CommentsSection />
+                <ToursNature />
+                <CreateComment /> 
             </UserProvider>
-
-            <Home />
-            <Offerings />
-            <GoodService />
-            <PicturesSection />
-            <GroupSection />
-            <AdventureTours />
-            <AdventureStart />
-            <CommentsSection />
-            <ToursNature />
-            <CreateComment /> 
         </>
     )
 }
