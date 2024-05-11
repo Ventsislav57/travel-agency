@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { animatePropForTitle, animatePropForArticle, animatePropForImage } from './animateProps.js';
 import styles from './GroupSection.module.css';
+import '../../global/variables.css';
 
 
 export const GroupSection = () => {

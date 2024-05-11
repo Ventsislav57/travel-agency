@@ -14,7 +14,6 @@ export const CommentsSection = () => {
 
 
     useEffect(() => {
-        console.log(window.scrollY);
 
         if (inView) {
             setIsInView('visible');

@@ -1,6 +1,6 @@
 .good_service {
     height: 100vh;
-    background-color: #293233;
+    background-color: var(--main-background-color);
     display: grid;
     grid-template-columns: 350px 650px;
     justify-content: center;
@@ -18,7 +18,7 @@
 
 .title_subtitle_btn > h1 {
     font-size: 46px;
-    color: #f58d54;
+    color: var(--orange-main);
     margin: 0;
 }
 
@@ -31,8 +31,8 @@
     width: 70%;
     padding: 20px 0;
     background-color: transparent;
-    color: #f58d54;
-    border: 2px solid #f58d54;
+    color: var(--orange-main);
+    border: 2px solid var(--orange-main);
     border-radius: 40px;
     color: white;
     cursor: pointer;
@@ -63,7 +63,7 @@
     right: -10%;
     width: 150px;
     height: 150px;
-    border: 40px solid #f58d54;
+    border: 40px solid var(--orange-main);
     border-radius: 100%;
 }
 
@@ -81,5 +81,5 @@
     width: 70px;
     height: 70px;
     border-radius: 100%;
-    border: 15px solid #f58d54;
+    border: 15px solid var(--orange-main);
 }

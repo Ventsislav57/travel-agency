@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { animatePropsForText, animatePropsForBigCircle, animatePropsForImg, animatePropsForSmallCircle } from './animateProps.js';
 import styles from './GoodService.module.css';
+import '../../global/variables.css';
 
 export const GoodService = () => {
 

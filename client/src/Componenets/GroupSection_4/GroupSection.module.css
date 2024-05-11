@@ -5,7 +5,7 @@
     justify-content: center;
     gap: 100px;
     height: 100vh;
-    background-color: #293233;
+    background-color: var(--second-background-color);
 }
 
 
@@ -43,8 +43,8 @@
 
 .comment .btn {
     border-radius: 30px;
-    color: #f58d54;
-    border: 2px solid #f58d54;
+    color: var(--orange-main);
+    border: 2px solid var(--orange-main);
     padding: 20px;
     cursor: pointer;
     width: 70%;
@@ -66,7 +66,7 @@
 
 .img_container img {
     width: 100%;
-    border: 8px solid #f58d54;
+    border: 8px solid var(--orange-main);
     border-radius: 100%;
 }
 
