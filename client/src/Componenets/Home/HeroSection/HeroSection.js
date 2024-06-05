@@ -19,7 +19,7 @@ export const HeroSection = () => {
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.7, delay: 0.4 }}
                 >
-                    Travel Agency asd
+                    Travel Agency
                 </motion.h5>
 
                 <motion.h1
