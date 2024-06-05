@@ -40,7 +40,7 @@ exports.login = async (userData) => {
 
 exports.getUserData = async (userId) => {
 
-    const user = await User.findOne({ _id: userId });
+    const user = await User.findOne({ _id: userId }).populate('comments');
 
     if (!user) {
         throw new Error('User not found.');
