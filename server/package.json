@@ -10,6 +10,9 @@
     "mongoose": "^8.3.2",
     "nodemon": "^3.1.0"
   },
+  "engines": {
+    "node": "~16.20.0"
+  },
   "scripts": {
     "start": "nodemon index.js"
   }
