@@ -26,25 +26,26 @@ export const Profile = ({ profileHandler }) => {
     
     useEffect(() => {
         
-        getUserData(user.user._id)
-        .then(result => {
-            console.log(result);
-            Object.entries(result.user).filter(data => {
-                setUserData((prev) => ({
-                    ...prev,
-                    [data[0]]: data[1]
-                }))
-            })
-        })
-        .catch(error => {
-            console.log(error);
-        })
-        
-        // window.scrollTo(0,0);
-        document.body.style.overflow = "hidden";
-        return () => (document.body.style.overflow = "auto");
+        if (user?.user) {
 
-    }, [])
+            getUserData(user.user._id)
+                .then(result => {
+                    console.log(result);
+                    Object.entries(result.user).filter(data => {
+                    setUserData((prev) => ({
+                        ...prev,
+                        [data[0]]: data[1]
+                    }))
+                })
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+                // window.scrollTo(0,0);
+                document.body.style.overflow = "hidden";
+                return () => (document.body.style.overflow = "auto");
+        }
+    }, [user?.user])
 
     function onChangeHandler(event) {
 

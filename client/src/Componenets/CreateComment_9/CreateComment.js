@@ -29,7 +29,7 @@ export const CreateComment = () => {
                 email: user.user.email
             }))
         }
-    },[])
+    },[user?.user])
 
     async function submitCommet(e) {
         e.preventDefault();
