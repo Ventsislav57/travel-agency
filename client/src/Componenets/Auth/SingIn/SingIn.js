@@ -17,6 +17,7 @@ export const SingIn = ({ showSingHandler, viewHandler }) => {
 
     const MySwal = withReactContent(Swal);
 
+    
     useEffect(() => {
         // window.scrollTo(0,0);
         document.body.style.overflow = "hidden";
