@@ -21,11 +21,13 @@ export const CreateComment = () => {
     const { user } = useContext(userContext);
 
     useEffect(() => {
-        setCommentData(prev =>  ({
-            ...prev,
-            username: user.user.username,
-            email: user.user.email
-        }))
+        if (user?.user) {
+            setCommentData(prev =>  ({
+                ...prev,
+                username: user.user.username,
+                email: user.user.email
+            }))
+        }
     },[])
 
     async function submitCommet(e) {
