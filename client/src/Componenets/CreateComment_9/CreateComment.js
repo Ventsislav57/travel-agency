@@ -67,7 +67,7 @@ export const CreateComment = () => {
                     owner: user.user._id
                 }
                 
-                const result = await createComment({ ...commentData, ...ratingAndOwner });
+                await createComment({ ...commentData, ...ratingAndOwner });
 
                 if (user.user.email) {
                     setCommentData(() => ({

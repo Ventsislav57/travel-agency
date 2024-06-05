@@ -65,7 +65,10 @@ export const GroupSection = () => {
                         initial='hidden'
                         animate={isInView}
                         variants={animatePropForImage}  
-                        src='./girls-modified.png' alt='pictures' 
+                        src='./girls-modified.png'
+                        alt='pictures' 
+                        width='100%'
+                        height='100%'
                     ></motion.img>
                 </div>
 

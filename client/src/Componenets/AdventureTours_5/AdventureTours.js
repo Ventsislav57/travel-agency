@@ -77,7 +77,7 @@ export const AdventureTours = () => {
                     className={styles['adventure']}
                 >
                     <div className={styles['img_container']}>
-                        <img src='./waterfall-modified.png' alt='pictures' />
+                        <img src='./waterfall-modified.webp' alt='pictures' />
                     </div>
 
                     <h2>Waterfalls</h2>
@@ -101,7 +101,7 @@ export const AdventureTours = () => {
                     className={styles['adventure']}
                 >
                     <div className={styles['img_container']}>
-                        <img src='./mountain-modified.png' alt='pictures' />
+                        <img src='./mountain-modified.webp' alt='pictures' />
                     </div>
 
                     <h2>MOUNTAINS</h2>

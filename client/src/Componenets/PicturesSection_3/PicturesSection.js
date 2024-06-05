@@ -33,7 +33,7 @@ export const PicturesSection = () => {
                     initial='hidden'
                     animate={isInView}
                     variants={animatePropsForSmallerPictures}
-                    src='./mountain_vilage-modified.png' alt="pictures" 
+                    src='./mountain_vilage-modified.webp' alt="pictures" 
                 ></motion.img>
             </div>
 
@@ -43,7 +43,7 @@ export const PicturesSection = () => {
                     initial='hidden'
                     animate={isInView}
                     variants={animatePropsForMediumPictures}
-                    src='./sea_beach-modified.png' alt="pictures" 
+                    src='./sea_beach-modified.webp' alt="pictures" 
                 ></motion.img>
             </div>
 

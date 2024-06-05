@@ -78,7 +78,7 @@ export const Navigation = ({ singInHandler, profileHandler }) => {
                 
                     <div className={styles['logo_and_search']}>
                         <div className={styles['logo_container']}>
-                            <h3>Travel agency</h3>
+                            <h4>Travel agency</h4>
                         </div>
 
                         <div className={styles['search_container']}>

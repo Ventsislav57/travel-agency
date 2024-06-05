@@ -56,7 +56,7 @@ export const GoodService = () => {
 
                 <div className={styles['img']}>
                     <motion.img 
-                        src='./good_service-modified.png' alt='pictures' 
+                        src='./good_service-modified.webp' alt='pictures' 
                         ref={ref}
                         initial="hidden"
                         animate={isInView}
